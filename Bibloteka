@@ -1,0 +1,40 @@
+            <input type="number" id="year-input" class="year-input" placeholder="Введите год...">
+            <button class="search-btn" onclick="checkHistory()">Узнать событие из архива</button>
+            <div id="history-result"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Научно-исследовательский проект по дисциплине «История». Разработано на смартфоне Honor.</p>
+    </footer>
+
+    <!-- Логика интерактивного поиска событий на русском языке -->
+    <script>
+        function checkHistory() {
+            const year = document.getElementById('year-input').value.trim();
+            const result = document.getElementById('history-result');
+            
+            if (year === "") {
+                result.style.color = "#ff6b6b";
+                result.innerHTML = "Пожалуйста, введите год!";
+                return;
+            }
+            
+            result.style.color = "#ebdcb9";
+            
+            // База исторических дат
+            if (year == "476") {
+                result.innerHTML = "🏛️ <b>476 год:</b> Падение Западной Римской империи. В исторической науке этот момент считается официальным завершением эпохи Древнего мира и началом Средних веков.";
+            } else if (year == "1492") {
+                result.innerHTML = "⛵ <b>1492 год:</b> Экспедиция Христофора Колумба достигла берегов Нового Света (Америки). Начало эпохи Великих географических открытий.";
+            } else if (year == "1945") {
+                result.innerHTML = "🎖️ <b>1945 год:</b> Окончание Второй мировой войны — самого масштабного и разрушительного конфликта в истории человечества. Создание Организации Объединенных Наций (ООН).";
+            } else {
+                result.style.color = "#c5a059";
+                result.innerHTML = "📜 Запись об этом годе сейчас находится в процессе оцифровки историками нашего архива. Попробуйте ввести ключевые вехи истории: 476, 1492 или 1945.";
+            }
+        }
+    </script>
+</body>
+</html>
